@@ -20,6 +20,7 @@ function generatePassword() {
     var useCaps = false;
     var useSpecial = false;
     var flag = true;
+    var length = 0;
     //get criteria
 
     while (flag) {
@@ -34,10 +35,47 @@ function generatePassword() {
             flag = false;
         }
     }
-    //generate the string based on the criteria
+
+    flag = true;
+    var valid = false;
+    while(flag){
+        //input should be a whole number where 8 <= input <= 128
+        input = prompt("How long do you want your password to be? (between 8 and 128 characters)");
+
+        valid = validateInput(input);
+        if(valid === false){
+            alert("Error: Please enter a number between 8 and 128");
+        } else {
+            flag = false;
+        }
+    }
+
+    
 
 
     return generatedString;
+
+}//end of generatePassword();
+
+
+function validateInput(input){
+
+    //make sure input is number first
+    var num = parseInt(input);
+
+    if(Number.isInteger(num) === false ){
+        return false;
+    }
+
+    if(input < 8 || input > 128){
+        return false;
+    }
+
+    return true;
+}
+
+function generateRandomLetter(lower, capital){
+
 }
 
 // Add event listener to generate button
