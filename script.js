@@ -137,7 +137,10 @@ function generateCapitalLetter() {
     return newLetter.toUpperCase();
 }
 
-
+function generateSpecial(){
+    var newChar = specialChars[rand(specialChars.length)];
+    return newChar;
+}
 
 //helper function rand(); makes it easier to generate a number
 function rand(upperLimit) {
