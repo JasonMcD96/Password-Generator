@@ -24,7 +24,6 @@ const arrayChoiceLimit = 4;
 function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
-
     passwordText.value = password;
 
 }
@@ -85,40 +84,35 @@ function generatePassword() {
             console.log("lower");
             newChar = generateLowerLetter();
             generatedString = generatedString + newChar;
+
         } else if (randNumber === capsKey && useCaps) {
             //generate a random capital letter
             console.log("capital");
             newChar = generateCapitalLetter();
             generatedString = generatedString + newChar;
+
         } else if (randNumber === specialsKey && useSpecial) {
             console.log("special");
             //generate a random special character
             newChar = generateSpecial();
             generatedString = generatedString + newChar;
         }
-
     }
-
     return generatedString;
 
 }//end of generatePassword();
-
-
 
 // validateInput(input) takes a variable and checks for an int and is bewteen two numbers
 function validateInput(input) {
 
     //make sure input is number first
     var num = parseInt(input);
-
     if (Number.isInteger(num) === false) {
         return false;
     }
-
     if (input < 8 || input > 128) {
         return false;
     }
-
     return true;
 }
 
